@@ -1,0 +1,351 @@
+
+/*----------------------------------------------------------------------------------------------------*/
+/* Info */
+/*----------------------------------------------------------------------------------------------------*/
+/*
+	perset.css
+		
+	By
+		Warawut Meesupa 
+		
+	For
+		IIC dev Environment
+		
+	Chang Log
+		
+		2010-08-31	ver 0.1.0	first code
+*/
+/*----------------------------------------------------------------------------------------------------*/
+/* Layout */
+/*----------------------------------------------------------------------------------------------------*/
+
+.hide	 	{ display: none; }
+.float_l	{ float: left; }
+.float_r	{ float: right; }
+.clear 		{ clear: both; }
+
+.center		{ text-align: center; }  
+.left		{ text-align: left; }  
+.right		{ text-align: right; }
+.justify	{ text-align: justify; }
+
+.w120	{ width: 120px }
+.w150	{ width: 150px }
+#centerBox
+{
+	position:absolute;
+	top:50%;
+	width:100%;
+	margin:auto;
+}
+
+#centerBox > div
+{
+	position:relative;
+	top:-150px;
+	width:300px;
+	min-height:300px;
+	margin:0px auto;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+/* Text */
+/*----------------------------------------------------------------------------------------------------*/
+
+.bold		{ font-weight: bold; }  
+.underline	{ text-decoration: underline; } 
+.italic 	{ font-style: italic; } 
+.indent 	{ text-indent: 20px; }
+.nowarp		{ white-space: nowrap; }  
+
+.black		{ color: #000; }
+.white		{ color: #FFF; }
+.red 		{ color: #F00; }
+.green		{ color: #060; }
+.blue		{ color: #09F; }
+.orange		{ color: #F90; }
+.liteGray	{ color: #999; }
+
+.text_64 { font-size: 64px; }
+.text_48 { font-size: 48px; }
+.text_36 { font-size: 36px; }
+.text_24 { font-size: 24px; }
+.text_22 { font-size: 22px; }
+.text_20 { font-size: 20px; }
+.text_18 { font-size: 18px; }
+.text_16 { font-size: 16px; }
+.text_14 { font-size: 14px; }
+.text_12 { font-size: 12px; }
+.text_11 { font-size: 11px; }
+.text_10 { font-size: 10px; }
+.text_9  { font-size: 9px; }
+.text_8  { font-size: 8px; }
+
+/*----------------------------------------------------------------------------------------------------*/
+/* Link */
+/*----------------------------------------------------------------------------------------------------*/
+
+a:link 		{ color: #00F; text-decoration: none; }
+a:visited	{ color: #333; text-decoration: none; outline:none; }
+a:hover 	{ color: #F90; text-decoration: none; }
+a:active 	{ color: #F90; text-decoration: none; outline:none; }
+
+a.white:link 	{ color: #FFF; text-decoration: none; }
+a.white:visited	{ color: #FFF; text-decoration: none; outline:none; }
+a.white:hover 	{ color: #F90; text-decoration: none; }
+a.white:active 	{ color: #F90; text-decoration: none; outline:none; }
+
+a.link_none:link 	{ text-decoration: none; border: none; }
+a.link_none:visited	{ text-decoration: none; border: none; }
+a.link_none:hover 	{ text-decoration: none; border: none; }
+a.link_none:active 	{ text-decoration: none; border: none; }
+
+/*----------------------------------------------------------------------------------------------------*/
+/* From */
+/*----------------------------------------------------------------------------------------------------*/
+
+form ul { list-style: none; }
+
+label
+{
+	display: block;
+	font-weight: bold;
+	margin: 10px 0px 5px 0px;
+	text-shadow:0 1px 0 white;
+	letter-spacing: 1px;
+}
+
+form input[type=text], form input[type=password], form textarea
+{
+	min-width: 85%;
+}
+
+form input[type=text], form input[type=password]
+{
+	padding: 2px;
+	height: 20px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+/* Button */
+/*----------------------------------------------------------------------------------------------------*/
+
+/* Default */
+/*------------------------------------------------------------*/
+
+input[type=submit], button, a.button
+{
+	background: url(../image/bg_button.png) repeat-x;
+	border: 1px solid #B8B8B8;
+	color: #333;
+	display: inline-block;
+	font-weight: bold;
+	height: 28px;
+	line-height: 28px;
+	padding: 0px 28px;
+	text-align: center;
+	text-shadow:0 1px 0 white;
+	
+	/* CSS3 */
+	border-radius: 28px;
+	-moz-border-radius: 28px;
+	-webkit-border-radius: 28px;
+	
+	box-shadow: 0px 0px 1px #999;
+	-moz-box-shadow: 0px 0px 1px #999;
+	-webkit-box-shadow: 0px 0px 1px #999;
+}
+
+input[type=submit]:hover, button:hover, a.button:hover
+{
+	background-position: center;
+	border-color: #71B7FF;
+	
+	/* CSS3 */
+	box-shadow: 0px 0px 1px #99CBFF;
+	-moz-box-shadow: 0px 0px 1px #99CBFF;
+	-webkit-box-shadow: 0px 0px 1px #99CBFF;
+}
+
+input[type=submit]:active, button:active, a.button:active
+{
+	background-position: bottom;
+	border-color: #63B0FF;
+	
+	/* CSS3 */
+	box-shadow: 0px 0px 1px #89C3FF;
+	-moz-box-shadow: 0px 0px 1px #89C3FF;
+	-webkit-box-shadow: 0px 0px 1px #89C3FF;
+}
+
+/* Back Office Main Menu */
+/*------------------------------------------------------------*/
+.menu_main
+{
+	background: url(../image/bg_mainMenu.png) repeat-x;
+	position: relative;
+	height: 40px;
+	
+	/* CSS3 */
+	box-shadow: 0px 1px 5px #333;
+	-moz-box-shadow: 0px 1px 5px #333;
+	-webkit-box-shadow: 0px 1px 5px #333;
+}
+
+.menu_main > li
+{
+	float: left;	
+	list-style: none;
+	position: relative;
+}
+
+.menu_main > li.float_r
+{
+	float: right;	
+	margin-right: 30px;
+}
+
+.menu_main > li a
+{
+	/*background: url(../image/bg_mainMenu_button.png) top repeat-x;*/
+	border: 1px solid #BFBFBF;
+	color: #555;
+	display: block;
+	line-height: 26px;
+	padding: 0px 10px;
+	margin: 6px 0px 0px 0px;
+	min-width: 80px;
+	text-align: center;
+	text-shadow: 0px 0px 2px #FFF;
+	
+	/* CSS3 */
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	
+	box-shadow: 0px 0px 1px #999, 0px 0px 5px #EEE inset;
+	-moz-box-shadow: 0px 0px 1px #999, 0px 0px 5px #EEE inset;
+	-webkit-box-shadow: 0px 0px 1px #999, 0px 0px 5px #EEE inset;
+}
+
+.menu_main > li a:hover, .menu_main > li.active a
+{
+	background: #999;
+	border: 1px solid #949494;
+	color: #FFF;
+	font-weight: bold;
+	margin: 6px 0px 0px 0px;
+	text-shadow: 0px 0px 3px #333;
+	
+	/* CSS3 */
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	
+	box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
+	-moz-box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
+	-webkit-box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
+}
+
+.menu_main > li > ul
+{
+	background: #999;
+	top: 41px;
+ 	list-style: none;
+	opacity: 0.9;
+	padding: 5px 0px 10px 0px;
+	position: absolute;
+	
+	/* CSS3 */
+	box-shadow: 0px 1px 5px #333;
+	-moz-box-shadow: 0px 1px 5px #333;
+	-webkit-box-shadow: 0px 1px 5px #333;
+}
+
+.menu_main > li > ul > li
+{
+	margin: 5px 10px;
+	padding: 1px;
+	min-width: 80px;
+}
+
+.menu_main > li > ul > li > a, .menu_main > li.active > ul > li > a
+{
+	background: #999;
+	border: 1px solid #949494;
+	box-shadow: 0px 0px 1px #CCC, 0px 0px 2px #BBB inset;
+	color: #FFF;
+	font-weight: normal;
+	padding: 0px 10px;
+	text-align: left;
+	text-shadow: 0px 0px 3px #333;
+	
+	/* CSS3 */
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	
+	box-shadow: 0px 0px 1px #CCC, 0px 0px 2px #BBB inset;
+	-moz-box-shadow: 0px 0px 1px #CCC, 0px 0px 2px #BBB inset;
+	-webkit-box-shadow: 0px 0px 1px #CCC, 0px 0px 2px #BBB inset;
+}
+
+.menu_main > li > ul > li > a:hover
+{
+	background: #AFAFAF;
+	border: 1px solid #949494;
+	font-weight: bold;
+	
+	/* CSS3 */
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	
+	box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
+	-moz-box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
+	-webkit-box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+/* Gadget */
+/*----------------------------------------------------------------------------------------------------*/
+
+.dashboard 
+{
+	background: #D0D0D0;
+	border: 1px #999 solid;
+	padding: 20px;
+	margin: 20px 0px;
+	
+	/* CSS3 */
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	
+	box-shadow: 0px 0px 2px #999, 0px 0px 5px #999 inset;
+	-moz-box-shadow: 0px 0px 2px #999, 0px 0px 5px #999 inset;
+	-webkit-box-shadow: 0px 0px 2px #999, 0px 0px 5px #999 inset;
+	
+}
+
+.gadget
+{
+	background: #F3F3F3 url(../image/bg_gadget.png) top repeat-x;
+	border: 1px solid #CCC;
+	float:left;
+	padding: 2px;
+	
+	/* CSS3 */
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	
+	box-shadow: 0px 0px 3px #999;
+	-moz-box-shadow: 0px 0px 3px #999;
+	-webkit-box-shadow: 0px 0px 3px #999;
+}
+
+
+/*----------------------------------------------------------------------------------------------------*/
+/* End */
+/*----------------------------------------------------------------------------------------------------*/
