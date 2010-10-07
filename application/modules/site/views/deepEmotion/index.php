@@ -55,7 +55,7 @@
         <li>Email:</li>
       </ul>
     </div>
-    <div id="contact" class="column grid_8">
+    <div id="contact_form" class="column grid_8">
       <h2><?php echo image_asset($themeName.'/bg_banner_fold_right.png', 'site', array('alt'=>'ribbon', 'width'=>'11', 'height'=>'41', 'class'=>'right_ribbon')); ?>Get Free Product</h2>
       <form action="" method="post">
         <label for="name">ชื่อ - นามสกุล</label>

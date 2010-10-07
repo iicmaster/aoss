@@ -131,7 +131,7 @@
 /* Contact */
 /*----------------------------------------------------------------------------------------------------*/
 
-#contact
+#contact_form
 {
 	background: url(../../image/deepEmotion/bg_profile.png) no-repeat;
 	height: 400px;
@@ -139,13 +139,14 @@
 	position: relative;
 }
 
-#contact form
+#contact_form form
 {
 	color: #FFF;
 	padding: 0px 20px;
 }
 
-#contact input[type=text], #contact input[type=password], #contact textarea { width: 410px; }
+#contact_form label { font-weight: normal; }
+#contact_form input[type=text], #contact input[type=password], #contact textarea { width: 410px; }
 
 /*----------------------------------------------------------------------------------------------------*/
 /* Testimonial */

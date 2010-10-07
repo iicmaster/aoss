@@ -26,3 +26,6 @@ class Backoffice extends Controller
 		$this->load->view('dashboard');
 	}
 }
+
+/* End of file backoffice.php */
+/* Location: application/modules/backoffice/controllers/backoffice.php */
