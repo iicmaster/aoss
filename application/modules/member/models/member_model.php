@@ -25,7 +25,7 @@ class Member_model extends Model
 		return $validation;
 	}
 	
-/*	function create_member()
+	/*function create_member()
 	{
 		$new_member_insert_data = array(
 			'first_name' 	=> $this->input->post('first_name'),
@@ -52,6 +52,22 @@ class Member_model extends Model
 		{ 
 			return FALSE;  
 		} 
+	}
+	
+	function get_theme($id=NULL)
+	{
+		$this->db->select('content_theme.name as name, member.theme_color as color');
+		$this->db->from('member');
+		$this->db->join('content_theme', 'member.id_theme = content_theme.id');
+		$this->db->where('member.id_member', $id);
+		$query = $this->db->get();
+		
+		$data = $query->row_array();
+		
+		$theme['name'] = $data['name'];
+		$theme['color'] = $data['color'];
+		
+		return $theme;
 	}
 }
 

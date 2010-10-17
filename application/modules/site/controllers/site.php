@@ -1,25 +1,34 @@
 <?php
 class Site extends Controller 
 {
+	private $id_member;
+	private $member_theme;
+	
 	function __construct()
 	{
-		parent::Controller();   
+		parent::Controller(); 
+		
+		// Load
+		$this->load->model('member/member_model');
+		
+		$this->id_member = '244848';
+		$this->member_theme = $this->member_model->get_theme($this->id_member); 
 	}
 	
 	function index()
-	{	
+	{		
+		$data['member_theme'] = $this->member_theme;
 		$data['title'] = 'Agel Independent';
-		$data['themeName'] = 'deepEmotion';
 		
-		$this->load->view($data['themeName'].'/index', $data);
+		$this->load->view($data['member_theme']['name'].'/index', $data);
 	}
 	
 	function product()
 	{	
+		$data['member_theme'] = $this->member_theme;
 		$data['title'] = 'Product';
-		$data['themeName'] = 'deepEmotion';
 		
-		$this->load->view($data['themeName'].'/product', $data);
+		$this->load->view($data['member_theme']['name'].'/product', $data);
 	}
 }
 
