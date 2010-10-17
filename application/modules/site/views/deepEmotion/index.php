@@ -6,8 +6,8 @@
 <title><?php echo $title ?></title>
 <?php echo css_asset('layout.css'); ?>
 <?php echo css_asset('style.css'); ?>
-<?php echo css_asset($themeName.'/'.$themeName.'.css', 'site'); ?>
-<?php echo css_asset($themeName.'/index.css', 'site'); ?>
+<?php echo css_asset('theme/'.$themeName.'/'.$themeName.'.css', 'site'); ?>
+<?php echo css_asset('theme/'.$themeName.'/index.css', 'site'); ?>
 <style type="text/css"></style>
 </head>
 

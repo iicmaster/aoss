@@ -21,3 +21,6 @@ class Member extends Controller
 		
 	}
 }
+
+/* End of file member.php */
+/* Location: application/modules/backoffice/controllers/member.php */

@@ -62,3 +62,6 @@ class Theme_model extends Model
 			';
 	}
 }
+
+/* End of file theme_model.php */
+/* Location: application/modules/backoffice/models/theme_model.php */

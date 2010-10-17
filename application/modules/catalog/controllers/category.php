@@ -6,3 +6,6 @@ class Category extends Controller
 	
 	}
 }
+
+/* End of file category.php */
+/* Location: application/modules/catalog/controllers/category.php */

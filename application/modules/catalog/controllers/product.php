@@ -6,3 +6,6 @@ class Product extends Controller
 	
 	}
 }
+
+/* End of file product.php */
+/* Location: application/modules/catalog/controllers/product.php */

@@ -16,3 +16,6 @@ class Catalog extends Controller
 		
 	}
 }
+
+/* End of file catalog.php */
+/* Location: application/modules/catalog/controllers/catalog.php */

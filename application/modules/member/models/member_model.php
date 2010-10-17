@@ -54,3 +54,6 @@ class Member_model extends Model
 		} 
 	}
 }
+
+/* End of file member_model.php */
+/* Location: application/modules/member/models/member_model.php */

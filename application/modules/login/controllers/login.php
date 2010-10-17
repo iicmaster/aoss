@@ -54,3 +54,6 @@ class Login extends Controller
 		$this->index();
 	}
 }
+
+/* End of file login.php */
+/* Location: application/modules/login/controllers/login.php */
