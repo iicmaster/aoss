@@ -13,7 +13,6 @@
 	<?php $this->load->view('menu_main'); ?>
 	<?php $this->load->view('navigator'); ?>
 	<div id="content_section">
-		<h1><?php echo $title ?></h1>
 		<?php $this->load->view($main_content); ?>
 	</div>
 	<div class="clear"></div>

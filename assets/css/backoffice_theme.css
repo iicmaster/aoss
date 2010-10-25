@@ -2,25 +2,43 @@
 
 #head_section
 {
-	background: #79C342 url(../image/bg_backoffice.png) no-repeat ;	
+	background: #79C342 url() no-repeat ;	
 	color: #FFF;
+	height: 80px;
 	text-align: right;
 	padding: 10px;
-	min-height: 80px;
 }
 
 #head_section h1
+{
+	font-size: 32px;
+	margin: 0px 0px 0px 10px;
+	font-weight: bold;
+	line-height: 80px;
+	text-align: left;
+	float:left;
+	
+	/* CSS3 */
+	text-shadow: 0px 0px 2px #666;
+}
+
+#head_section h2
 {
 	font-size: 24px;
 	margin: 0px;
 	font-weight: normal;
 }
 
-#head_section h2
+#head_section h3
 {
 	font-size: 18px;
 	margin: 0px;
 	font-weight: normal;
+}
+
+#head_section img
+{
+	margin: 5px 0px;
 }
 
 #navigator_section
