@@ -17,6 +17,9 @@ class Site extends Controller
 	
 	function index()
 	{		
+		$this->load->model('content_model');
+		
+		$data['vdo'] = $this->content_model->get_vdo();
 		$data['member_theme'] = $this->member_theme;
 		$data['title'] = 'Agel Independent';
 		

@@ -1,4 +1,5 @@
 <?php
+
 function print_array($arr)
 {
 	echo '<pre>';
@@ -6,6 +7,9 @@ function print_array($arr)
 	echo '</pre>';
 	exit();
 }
+
+/* End of file MY_array_helper.php */
+/* Location: ./application/helpers/MY_array_helper.php */
 
 
 

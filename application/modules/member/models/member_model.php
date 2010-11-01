@@ -9,9 +9,18 @@ class Member_model extends Model
 	{
 		parent::Model();   
 		
-		$this->fields['id'] = 'id_member';
-		$this->fields['username'] = 'id_member';
-		$this->fields['password'] = 'password';
+		$this->fields['id']				= 'id_member';
+		$this->fields['username']		= 'id_member';
+		$this->fields['password']		= 'password';
+		$this->fields['first_name']		= 'first_name';
+		$this->fields['last_name']		= 'last_name';
+		$this->fields['sex']			= 'sex';
+		$this->fields['birthday']		= 'birthday';
+		$this->fields['email']			= 'email';
+		$this->fields['detail'] 		= 'detail';
+		$this->fields['domain'] 		= 'domain';
+		$this->fields['date_register'] 	= 'date_register';
+		$this->fields['date_expire'] 	= 'date_expire';
 		$this->table = 'member';
 	}
 	
@@ -25,19 +34,66 @@ class Member_model extends Model
 		return $validation;
 	}
 	
-	/*function create_member()
+	function create_member()
 	{
 		$new_member_insert_data = array(
-			'first_name' 	=> $this->input->post('first_name'),
+			'id_member'		=> $this->input->post('username'),
+			'password' 		=> $this->input->post('password'),
+			'first_name'	=> $this->input->post('first_name'),
 			'last_name' 	=> $this->input->post('last_name'),
-			'email_address' => $this->input->post('email_address'),			
-			'username' 		=> $this->input->post('username'),
-			'password' 		=> $this->input->post('password')						
+			'sex' 			=> $this->input->post('sex'),
+			'birthday' 		=> $this->input->post('birthday'),	
+			'email' 		=> $this->input->post('email'),			
+			'detail' 		=> $this->input->post('detail'),
+			'domain' 		=> $this->input->post('domain'),
+			'date_register' => $this->input->post('date_register')						
 		);
 		
 		$insert = $this->db->insert($this->table, $new_member_insert_data);
+		
 		return $insert;
-	}*/
+	}
+	
+	function update_member($id=NULL)
+	{
+		if($id != NULL)
+		{
+			$data = array(
+				'password' 		=> $this->input->post('password'),
+				'first_name'	=> $this->input->post('first_name'),
+				'last_name' 	=> $this->input->post('last_name'),
+				'sex' 			=> $this->input->post('sex'),
+				'birthday' 		=> $this->input->post('birthday'),	
+				'email' 		=> $this->input->post('email'),			
+				'detail' 		=> $this->input->post('detail'),
+				'domain' 		=> $this->input->post('domain')
+			);
+			
+			$this->db->where($this->fields['id'], $id);
+			$update = $this->db->update($this->table, $data);
+			
+			return $update;
+		}
+		else
+		{
+			return FALSE;	
+		}
+	}
+	
+	function delete_member($id=NULL)
+	{
+		if($id != NULL)
+		{ 
+			$this->db->where($this->fields['id'], $id);
+			$delete = $this->db->delete($this->table);
+			
+			return $delete;
+		}
+		else
+		{
+			return FALSE;	
+		}
+	}
 	
 	function get_detail($id=NULL)  
 	{  

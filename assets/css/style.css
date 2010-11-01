@@ -111,8 +111,9 @@ label
 	display: block;
 	font-weight: bold;
 	margin: 10px 0px 5px 0px;
-	text-shadow:0 1px 0 white;
 	letter-spacing: 1px;
+	
+	/*text-shadow:0 1px 0 white;*/
 }
 
 form input[type=text], form input[type=password], form textarea
@@ -124,6 +125,12 @@ form input[type=text], form input[type=password]
 {
 	padding: 2px;
 	height: 20px;
+}
+
+form input[type=submit], form button, form a.button
+{
+	display: block;
+	margin: 20px auto 0px auto;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
@@ -209,7 +216,6 @@ input[type=submit]:active, button:active, a.button:active
 .menu_main > li a
 {
 	/*background: url(../image/bg_mainMenu_button.png) top repeat-x;*/
-	border: 1px solid #BFBFBF;
 	color: #555;
 	display: block;
 	line-height: 26px;
@@ -218,6 +224,12 @@ input[type=submit]:active, button:active, a.button:active
 	min-width: 80px;
 	text-align: center;
 	text-shadow: 0px 0px 2px #FFF;
+}
+
+.menu_main > li a:hover
+{
+	border: 1px solid #BFBFBF;
+	padding: 0px 9px;
 	
 	/* CSS3 */
 	border-radius: 5px;
@@ -229,23 +241,24 @@ input[type=submit]:active, button:active, a.button:active
 	-webkit-box-shadow: 0px 0px 1px #999, 0px 0px 5px #EEE inset;
 }
 
-.menu_main > li a:hover, .menu_main > li.active a
+.menu_main > li.active a, .menu_main > li a:active
 {
 	background: #999;
 	border: 1px solid #949494;
 	color: #FFF;
-	font-weight: bold;
-	margin: 6px 0px 0px 0px;
-	text-shadow: 0px 0px 3px #333;
+	/*font-weight: bold;*/
+	padding: 0px 9px;
 	
 	/* CSS3 */
+	text-shadow: 0px 0px 3px #333;
+	
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	
-	box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
-	-moz-box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
-	-webkit-box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
+	box-shadow: 0px 0px 1px #CCC, 0px 0px 2px #777 inset;
+	-moz-box-shadow: 0px 0px 1px #CCC, 0px 0px 2px #777 inset;
+	-webkit-box-shadow: 0px 0px 1px #CCC, 0px 0px 2px #777 inset;
 }
 
 .menu_main > li > ul
@@ -274,14 +287,13 @@ input[type=submit]:active, button:active, a.button:active
 {
 	background: #999;
 	border: 1px solid #949494;
-	box-shadow: 0px 0px 1px #CCC, 0px 0px 2px #BBB inset;
 	color: #FFF;
-	font-weight: normal;
 	padding: 0px 10px;
 	text-align: left;
-	text-shadow: 0px 0px 3px #333;
 	
 	/* CSS3 */
+	text-shadow: 0px 0px 3px #333;
+	
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -294,8 +306,6 @@ input[type=submit]:active, button:active, a.button:active
 .menu_main > li > ul > li > a:hover
 {
 	background: #AFAFAF;
-	border: 1px solid #949494;
-	font-weight: bold;
 	
 	/* CSS3 */
 	border-radius: 5px;
@@ -305,6 +315,11 @@ input[type=submit]:active, button:active, a.button:active
 	box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
 	-moz-box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
 	-webkit-box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
+}
+
+.menu_main > li:active > ul
+{
+	display: block;
 }
 
 /*----------------------------------------------------------------------------------------------------*/

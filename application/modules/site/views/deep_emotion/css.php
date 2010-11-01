@@ -32,11 +32,33 @@ h2 img.right_ribbon
 	position: absolute;
 	right: -11px;
 }
+
 #container
 {
 	background: url(<?php echo base_url().'assets/modules/site/image/theme/'.$member_theme['name'].'/'.$member_theme['color'] ?>/img_graphic.png) repeat-y top center;
 	display: block;
 }
+/*----------------------------------------------------------------------------------------------------*/
+/* Contact */
+/*----------------------------------------------------------------------------------------------------*/
+
+#contact_form
+{
+	background: url(<?php echo base_url().'assets/modules/site/image/theme/'.$member_theme['name'].'/'.$member_theme['color'] ?>/bg_profile.png) no-repeat;
+	height: 400px;
+	padding: 0px;
+	position: relative;
+}
+
+#contact_form h2 { margin-bottom: 5px; }
+
+#contact_form form
+{
+	color: #FFF;
+	padding: 0px 20px;
+}
+
+#contact_form form label { font-weight: normal; }
 
 /*----------------------------------------------------------------------------------------------------*/
 /* Footer */

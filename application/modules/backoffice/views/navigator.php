@@ -1,3 +1,3 @@
 <div id="navigator_section">
-	Home
+	Dashboard 
 </div>
