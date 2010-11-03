@@ -6,7 +6,7 @@
 
 #header
 {
-	background: url(<?php echo base_url().'assets/modules/site/image/theme/'.$member_theme['name'].'/'.$member_theme['color'] ?>/bg_slideshow.png) no-repeat bottom right;
+	background: url(<?php echo $image_path ?>bg_slideshow.png) no-repeat bottom right;
 	height: 420px;
 	margin-bottom: 10px;
 	position: relative;
@@ -29,7 +29,7 @@
 
 #navigator li a
 {
-	background: url(<?php echo base_url().'assets/modules/site/image/theme/'.$member_theme['name'].'/'.$member_theme['color'] ?>/bg_navigator.png) center no-repeat;
+	background: url(<?php echo $image_path ?>bg_navigator.png) center no-repeat;
 	border: 1px solid #FFF;
 	color: #FFF;
 	display: block;
@@ -42,6 +42,8 @@
 	width: 150px;
 	
 	/* CSS3 */
+	text-shadow: 1px 1px 3px #999;
+	
 	border-radius: 30px;
 	-moz-border-radius: 30px;
 	-webkit-border-radius: 30px;
@@ -49,15 +51,17 @@
 	box-shadow: 1px 1px 3px #999;
 	-moz-box-shadow: 1px 1px 3px #999;
 	-webkit-box-shadow: 1px 1px 3px #999;
-	
-	text-shadow: 1px 1px 3px #999;
 }
 
 #navigator li a:hover, #navigator li a.active
 {
-	box-shadow: 0px 0px 5px #FFF, 1px 1px 3px #999;
+ 	background: url(<?php echo $image_path ?>bg_navigator_hover.png) no-repeat;
 	margin-left: 50px;
- 	background: url(<?php echo base_url().'assets/modules/site/image/theme/'.$member_theme['name'].'/'.$member_theme['color'] ?>/bg_navigator_hover.png) no-repeat;
+	
+	/* CSS3 */
+	box-shadow: 0px 0px 5px #FFF, 1px 1px 3px #999;
+	-moz-box-shadow: 0px 0px 5px #FFF, 1px 1px 3px #999;
+	-webkit-box-shadow: 0px 0px 5px #FFF, 1px 1px 3px #999;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
@@ -67,8 +71,8 @@
 #slideshow
 {
 	background: #FFF;
-	width: 640px;
-	height: 360px;
+	width: 625px;
+	height: 351px;
 	margin: 40px 10px 10px 0px;
 }
 
@@ -78,7 +82,7 @@
 
 #motto
 {
-	background: url(<?php echo base_url().'assets/modules/site/image/theme/'.$member_theme['name'].'/'.$member_theme['color'] ?>/bg_motto_banner.png);
+	background: url(<?php echo $image_path ?>bg_motto_banner.png);
 	color: #FFF;
 	height: 46px;
 	line-height: 46px;
@@ -87,67 +91,83 @@
 }
 
 /*----------------------------------------------------------------------------------------------------*/
-/* VDO */
-/*----------------------------------------------------------------------------------------------------*/
-
-#vdo
-{
-	background: url(<?php echo base_url().'assets/modules/site/image/theme/'.$member_theme['name'].'/'.$member_theme['color'] ?>/bg_video.png) no-repeat;
-	height: 300px;
-	padding: 0px;
-	margin-bottom: 10px;
-}
-
-#vdo li
-{
-	float: left;
-	list-style: none;
-	text-align: center;
-	margin: 0px;
-	width: 235px;
-}
-
-#vdo a img
-{
-	display: block;
-	margin: auto;
-	margin-bottom: 15px;
-	
-	/* CSS3 */
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	
-	box-shadow: 1px 1px 5px #999;
-	-moz-box-shadow: 1px 1px 5px #666;
-	-webkit-box-shadow: 1px 1px 5px #999;
-}
-
-/*----------------------------------------------------------------------------------------------------*/
 /* Profile */
 /*----------------------------------------------------------------------------------------------------*/
 
 #profile
 {
-	background: url(<?php echo base_url().'assets/modules/site/image/theme/'.$member_theme['name'].'/'.$member_theme['color'] ?>/bg_profile.png) no-repeat;
+	background: url(<?php echo $image_path ?>bg_profile.png) no-repeat;
 	height: 400px;
 	padding: 0px;
 	position: relative;
 }
 
-#profileImg
-{
-	float: left;
-	margin: 0px 20px;
-}
+	#profile_content
+	{
+		padding: 0px 20px; 
+	}
+	
+		#profile_content blockquote
+		{
+			background: #EEE;
+			border: 1px solid #FFF;
+			color: #600;
+			display: table-cell;
+			height: 130px;
+			line-height: 36px;
+			overflow: hidden;			
+			padding: 10px;
+			text-align: center;
+			vertical-align: middle;
+			width: 410px;
+			
+			/* CSS3 */
+			text-shadow: none;
+			
+			border-radius: 10px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			
+			box-shadow: 0px 0px 5px #666, 0px 0px 3px #666 inset;
+			-moz-box-shadow: 0px 0px 5px #666, 0px 0px 3px #666 inset;
+			-webkit-box-shadow: 0px 0px 5px #666, 0px 0px 3px #666 inset;
+		}
+		
+		#profile_content blockquote:before
+		{
+			content: '" ';
+			font-size: 36px;
+			font-family: Georgia, "Times New Roman", Times, serif;
+		}
+		
+		#profile_content blockquote:after
+		{
+			content: ' "';
+			font-size: 36px;
+			font-family: Georgia, "Times New Roman", Times, serif;
+		}
 
-#profile li { list-style: none; }
+		#profile_content div
+		{
+			margin-top: 20px;
+		}
 
-/*----------------------------------------------------------------------------------------------------*/
-/* Contact */
-/*----------------------------------------------------------------------------------------------------*/
+		#profile_content img
+		{
+			float: left;
+			border: solid;
+			
+			/* CSS3 */
+			border-radius: 10px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+		}
 
-#contact_form input[type=text], #contact_form input[type=password], #contact_form textarea { width: 410px; }
+		#profile_content li
+		{
+			list-style: none;
+			line-height: 30px;
+		}
 
 /*----------------------------------------------------------------------------------------------------*/
 /* Testimonial */
@@ -155,7 +175,7 @@
 
 #testimonial h2
 {
-	background: url(<?php echo base_url().'assets/modules/site/image/theme/'.$member_theme['name'].'/'.$member_theme['color'] ?>/bg_motto_banner.png);
+	background: url(<?php echo $image_path ?>bg_motto_banner.png);
 	color: #FFF;
 	height: 46px;
 	line-height: 46px;
@@ -170,7 +190,7 @@
 
 #testimonial li
 {
- 	background: url(<?php echo base_url().'assets/modules/site/image/theme/'.$member_theme['name'].'/'.$member_theme['color'] ?>/bg_testimonial.png) no-repeat;
+ 	background: url(<?php echo $image_path ?>bg_testimonial.png) no-repeat;
 	color: #333;
 	height: 114px;
 	padding: 30px 50px 30px 30px;
@@ -203,7 +223,7 @@
 <body>
 <div id="container" >
 	<div class="row">
-		<div id="header" class="column grid_16"> <?php echo image_asset('theme/'.$member_theme['name'].'/'.$member_theme['color'].'/bg_logo.png', 'site', array('alt'=>'Agel Independent', 'width'=>'267', 'height'=>'152' , 'id'=>'logo')); ?>
+		<div id="header" class="column grid_16"> <?php echo image_asset($image_asset_path.'bg_logo.png', 'site', array('alt'=>'Agel Independent', 'width'=>'267', 'height'=>'152' , 'id'=>'logo')); ?>
 			<div class="row">
 				<?php include('navigator.php'); ?>
 				<div id="slideshow" class="column grid_11"></div>
@@ -219,16 +239,23 @@
 	<div class="row">
 		<div id="profile" class="column grid_8">
 			<h2>
-				<?php echo image_asset('theme/'.$member_theme['name'].'/'.$member_theme['color'].'/bg_banner_fold.png', 'site', array('alt'=>'ribbon', 'width'=>'11', 'height'=>'41', 'class'=>'lef_ribbon')); ?>
+				<?php echo image_asset($image_asset_path.'bg_banner_fold.png', 'site', array('alt'=>'ribbon', 'width'=>'11', 'height'=>'41', 'class'=>'lef_ribbon')); ?>
 				ข้อมูลนักธุรกิจ
-				</h2>
-			<img src="<?php echo base_url().'assets/image' ?>/img_img_squ_w.png" alt="Image" name="profileImg" width="200" height="300" id="profileImg" />
-			<ul>
-				<li>ชื่อนามสกุล</li>
-				<li>ID:</li>
-				<li>Tel:</li>
-				<li>Email:</li>
-			</ul>
+			</h2>
+			<div id="profile_content">
+				<blockquote>
+					$user['message']
+				</blockquote>
+				<div>
+					<?php echo image_asset('img_img_squ_w.png', '', array('width'=>'130', 'height'=>'130', 'alt'=>'Profiel Image')) ?>
+					<ul class="float_l">
+						<li>$user['name']</li>
+						<li>ID:</li>
+						<li>Tel:</li>
+						<li>Email:</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 		<?php include("contact_form.php"); ?>
 	</div>
@@ -236,7 +263,6 @@
 	<?php include("footer.php"); ?>
 </div>
 <?php echo js_asset('jquery-1.4.3.min.js'); ?>
-<?php echo js_asset('fancybox/jquery.mousewheel-3.0.4.pack.js'); ?>
 <?php echo js_asset('fancybox/jquery.fancybox-1.3.2.pack.js'); ?>
 <script type="text/javascript">
 $(function() {

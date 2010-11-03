@@ -1,6 +1,6 @@
 <div class="row">
 	<div id="vdo" class="column grid_16">
-		<h2><?php echo image_asset('theme/'.$member_theme['name'].'/'.$member_theme['color'].'/bg_banner_fold.png', 'site', array('alt'=>'ribbon', 'width'=>'11', 'height'=>'41', 'class'=>'lef_ribbon')); ?>VDO</h2>
+		<h2><?php echo image_asset($image_asset_path.'bg_banner_fold.png', 'site', array('alt'=>'ribbon', 'width'=>'11', 'height'=>'41', 'class'=>'lef_ribbon')); ?>VDO</h2>
 		<ul>
 		<?php $this->load->helper('MY_youtube'); ?>
 		<?php foreach ($vdo->result() as $row): ?>

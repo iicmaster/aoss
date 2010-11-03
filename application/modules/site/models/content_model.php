@@ -11,7 +11,7 @@ class Content_model extends Model
 	
 	function get_vdo($id=NULL)
 	{
-		$this->db->order_by('id', 'asc');
+		$this->db->order_by('id');
 		$query = $this->db->get('content_vdo');
 		
 		return $query;

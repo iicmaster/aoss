@@ -41,7 +41,7 @@
 */
 
 $route['default_controller'] = "site";
-$route['scaffolding_trigger'] = "";
+$route['scaffolding_trigger'] = "crud";
 
 
 /* End of file routes.php */

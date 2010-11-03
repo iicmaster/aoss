@@ -21,10 +21,10 @@ class News_model extends Model
 	function create_news()
 	{
 		$data = array(
-			'type'		=> $this->input->post('type'),
+			'type'		=> 0,
 			'topic'		=> $this->input->post('topic'),
 			'detail'	=> $this->input->post('detail'),
-			'date_add'	=> $this->input->post('date')					
+			'date_add'	=> date('Y-m-d H:i:s')				
 		);
 		
 		$query = $this->db->insert($this->table, $data);
@@ -50,28 +50,46 @@ class News_model extends Model
 		}
 	}
 	
-	function delete_news($id=NULL)
-	{
-		if($id != NULL){
-			$this->db->where($this->fields['id'], $id);
-			$query = $this->db->delete($this->table);
+	function delete_news()
+	{	
+		$id = explode(',', $this->input->post('id'));
+		
+		if(count($id) > 1){
+			for($loop = 1;$loop <= count($id);$loop++){
+				$this->db->where($this->fields['id'], $id[$loop - 1]);
+				$query = $this->db->delete($this->table);
+			}
 			
-			return $query;
+			return $this->get_news_json();
 		}else{
 			return FALSE;	
 		}
 	}
 	
-	function get_news($id=NULL)
+	function get_news()
 	{
-		if($id != NULL){
-			$this->db->where($this->fields['id'], $id);
-			$query = $this->db->get($this->table);
-			
-			return $query;
-		}else{
-			return FALSE;	
+		//$this->db->order_by($this->fields['id'], 'asc');
+		$data = $this->db->get($this->table);
+		
+		return $data;
+	}
+	
+	function get_news_json()
+	{
+		$query = $this->db->get($this->table);
+		
+		$data['th'] = array('Topic', 'Detail');
+		$data['id'] = array();
+		$data['Topic'] = array();
+		$data['Detail'] = array();
+		
+		foreach($query->result() as $row){
+			array_push($data['id'], $row->id_news);
+			array_push($data['Topic'], $row->topic);
+			array_push($data['Detail'], $row->detail);	
 		}
+		
+		return json_encode($data);
 	}
 }
 

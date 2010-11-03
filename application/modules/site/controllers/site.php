@@ -8,22 +8,34 @@ class Site extends Controller
 	{
 		parent::Controller(); 
 		
-		// Load
+		// Load Model
 		$this->load->model('member/member_model');
 		
-		$this->id_member = '244848';
+		// Set user ID
+		if($this->input->post('id_member'))
+		{
+			$this->id_member = $this->input->post('id_member');
+		}
+		else
+		{
+			$this->id_member = '595401';
+		}
+		
+		// Set user theme
 		$this->member_theme = $this->member_model->get_theme($this->id_member); 
 	}
 	
 	function index()
 	{		
+		// Load Model
 		$this->load->model('content_model');
 		
-		$data['vdo'] = $this->content_model->get_vdo();
-		$data['member_theme'] = $this->member_theme;
-		$data['title'] = 'Agel Independent';
+		$data['vdo'] 				= $this->content_model->get_vdo();
+		$data['title'] 				= 'Agel Independent';
+		$data['image_asset_path'] 	= 'theme/'.$this->member_theme['name'].'/'.$this->member_theme['color'].'/';
+		$data['image_path'] 		= base_url().'assets/modules/site/image/'.$data['image_asset_path'];
 		
-		$this->load->view($data['member_theme']['name'].'/index', $data);
+		$this->load->view($this->member_theme['name'].'/index', $data);
 	}
 	
 	function product()

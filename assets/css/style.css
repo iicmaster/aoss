@@ -118,7 +118,7 @@ label
 
 form input[type=text], form input[type=password], form textarea
 {
-	min-width: 85%;
+	width: 100%;
 }
 
 form input[type=text], form input[type=password]
