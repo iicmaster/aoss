@@ -31,6 +31,7 @@ class Site extends Controller
 		$this->load->model('content_model');
 		
 		$data['vdo'] 				= $this->content_model->get_vdo();
+		$data['testimonial'] = $this->content_model->get_testimonial();
 		$data['title'] 				= 'Agel Independent';
 		$data['image_asset_path'] 	= 'theme/'.$this->member_theme['name'].'/'.$this->member_theme['color'].'/';
 		$data['image_path'] 		= base_url().'assets/modules/site/image/'.$data['image_asset_path'];

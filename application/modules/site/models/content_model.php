@@ -16,6 +16,16 @@ class Content_model extends Model
 		
 		return $query;
 	}
+	
+	function get_testimonial($limit=5)
+	{
+		$this->db->order_by('id', 'random');
+		$this->db->limit($limit);
+		
+		$query = $this->db->get('content_testimonial');
+		
+		return $query;
+	}
 }
 
 /* End of file content_model.php */
