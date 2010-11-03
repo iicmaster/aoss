@@ -42,5 +42,5 @@ class News extends Controller
 	}
 }
 
-/* End of file site.php */
-/* Location: application/modules/site/controllers/site.php */
+/* End of file news.php */
+/* Location: application/modules/news/controllers/news.php */

@@ -20,7 +20,7 @@ $(document).ready(function(){
 	});
 	
 	$('#delete_news').click(function(){
-		var checked;
+		var checked = '';
 		
 		$('tbody :input:checked').each(function() {
 			checked += ',' + $(this).val();
@@ -31,11 +31,11 @@ $(document).ready(function(){
 		$.post(url, data, 
 			function(json){
 				var content = '';
-				for(var loop = 0;loop < json['Topic'].length;loop++){
+				for(var loop = 0;loop < json['topic'].length;loop++){
 					content += '<tr>';
 					content += '<td><input type="checkbox" value=' + json['id'][loop] + ' /></td>'
-					content += '<td>' + json['Topic'][loop] + '</td>';
-					content += '<td>' + json['Detail'][loop] + '</td>';
+					content += '<td>' + json['topic'][loop] + '</td>';
+					content += '<td>' + json['detail'][loop] + '</td>';
 					content += '</tr>';
 				}
 				$('tbody').html(content);
