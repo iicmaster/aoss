@@ -5,7 +5,7 @@
 <title>News</title>
 <?php echo css_asset('layout.css') ?>
 <?php echo css_asset('style.css') ?>
-<?php echo css_asset('jquery-ui-1.8.5/css/modern_green/jquery-ui-1.8.5.custom.css') ?>
+<link rel="stylesheet" type="text/css" href="http://localhost/aoss/assets/js/jquery-ui-1.8.5/css/modern_green/jquery-ui-1.8.5.custom.css"/>
 <?php echo js_asset('jquery-1.4.3.min.js') ?>
 <?php echo js_asset('jquery-ui-1.8.5/jquery-ui-1.8.5.min.js') ?>
 <script type="text/javascript">
@@ -29,21 +29,81 @@ $(document).ready(function(){
 		var url = '<?php echo base_url().'news/delete_news' ?>';
 		var data = 'id=' + checked;
 		$.post(url, data, 
-			function(json){
-				var content = '';
-				for(var loop = 0;loop < json['topic'].length;loop++){
-					content += '<tr>';
-					content += '<td><input type="checkbox" value=' + json['id'][loop] + ' /></td>'
-					content += '<td>' + json['topic'][loop] + '</td>';
-					content += '<td>' + json['detail'][loop] + '</td>';
-					content += '</tr>';
-				}
-				$('tbody').html(content);
+			function(json){	
+				$('tbody').html(get_json_row(json, 'other'));
 			},
 			'json'
 		);
 	});
 });
+
+function get_json_row(json, pattern)
+{
+	pattern = pattern || 'default';
+	var data = '';
+	
+	for(var first_loop = 0; first_loop < json.length; first_loop++)
+	{
+		data += '<tr>';
+		if(pattern == 'default')
+		{
+			for(var second_loop = 0; second_loop < json[first_loop].length; second_loop++)
+			{
+				if(second_loop == 0)
+				{
+					data += '<td><input type="checkbox" value=' + json[first_loop][second_loop] + ' /></td>';
+				}
+				else
+				{
+					data += '<td>' + json[first_loop][second_loop] + '</td>';
+				}
+			}
+		}
+		else
+		{
+			for(var second_loop = 0; second_loop < json[first_loop].length; second_loop++)
+			{
+				data += '<td>' + json[first_loop][second_loop] + '</td>';
+			}
+		}
+		data += '</tr>';
+	}
+	return data;
+}
+
+function get_json_table(json, pattern)
+{
+	var data = '';
+	data += '<table>';
+	for(var first_loop = 0;first_loop < json.length;first_loop++)
+	{
+		data += '<tr>';
+		if(first_loop == 0){
+			for(var second_loop = 0;second_loop < json[first_loop].length;second_loop++)
+			{
+				data += '<th>' + json[first_loop][second_loop] + '</th>';	
+			}
+		}
+		else
+		{
+			for(var second_loop = 0;second_loop < json[first_loop].length;second_loop++)
+			{
+				if(pattern == 'default' && second_loop == 0)
+				{
+					data += '<td><input type="checkbox" value=' + json[first_loop][second_loop] + ' /></td>';
+				}
+				else
+				{
+					data += '<td>' + json[first_loop][second_loop] + '</td>';
+				}
+			}
+		}
+		data += '</tr>';
+	}
+	data += '</table>';
+	return data;
+}
+
 </script>
 </head>
 <body>
@@ -58,27 +118,25 @@ $(document).ready(function(){
 		</form>
 	</div>
 	<div id="content">
-	<table border="2">
-		<thead>	
-			<tr>
-				<th></th>
-				<th>Topic</th>
-				<th>Result</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php foreach($data->result() as $row): ?>
-			<tr>
-				<td><input type="checkbox" value="<?php echo $row->id_news ?>" /></td>
-				<td><?php echo $row->topic ?></td>
-				<td><?php echo $row->detail ?></td>
-			</tr>
-			<?php endforeach; ?>
-		</tbody>
-	</table>
-	<a id="add_news" herf="#">Add</a> 
-	<a id="delete_news" herf="#">Delete</a> 
-	</div>
+		<table border="2">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Topic</th>
+					<th>Result</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($data->result() as $row): ?>
+				<tr>
+					<td><input type="checkbox" value="<?php echo $row->id_news ?>" /></td>
+					<td><?php echo $row->topic ?></td>
+					<td><?php echo $row->detail ?></td>
+				</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+		<a id="add_news" herf="#">Add</a> <a id="delete_news" herf="#">Delete</a> </div>
 	<div id="dialog">
 		<form action="<?php echo base_url()?>news/add_news" method="post">
 			<ul>
