@@ -27,17 +27,21 @@ class News_model extends Model
 			'date_add'	=> date('Y-m-d H:i:s')				
 		);
 		
-		if($data['topic'] != ''){
+		if($data['topic'] != '')
+		{
 			$query = $this->db->insert($this->table, $data);
 			return $query;
-		}else{
+		}
+		else
+		{
 			return FALSE;	
 		}
 	}
 	
 	function update_news($id=NULL)
 	{
-		if($id != NULL){
+		if($id != NULL)
+		{
 			$data = array(
 				'topic'		=> $this->input->post('topic'),
 				'detail'		=> $this->input->post('detail'),
@@ -57,8 +61,10 @@ class News_model extends Model
 	{	
 		$id = explode(',', $this->input->post('id'));
 		
-		if(count($id) > 1){
-			for($loop = 1;$loop <= count($id);$loop++){
+		if(count($id) > 1)
+		{
+			for($loop = 1;$loop <= count($id);$loop++)
+			{
 				$this->db->where($this->fields['id'], $id[$loop - 1]);
 				$query = $this->db->delete($this->table);
 			}
@@ -81,15 +87,16 @@ class News_model extends Model
 	{
 		$query = $this->db->get($this->table);
 		
-		$data['th'] = array('Topic', 'Detail');
-		$data['id'] = array();
-		$data['topic'] = array();
-		$data['detail'] = array();
+		$data = array();
 		
 		foreach($query->result() as $row){
-			array_push($data['id'], $row->id_news);
-			array_push($data['topic'], $row->topic);
-			array_push($data['detail'], $row->detail);	
+			$sub_data = array(
+									$row->id_news, 
+									$row->topic, 
+									$row->detail
+							);
+	
+			array_push($data, $sub_data);	
 		}
 		
 		return json_encode($data);

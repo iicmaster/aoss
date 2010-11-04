@@ -125,6 +125,22 @@ class Member_model extends Model
 		
 		return $theme;
 	}
+	
+	function post_message()
+	{
+		$data = array(
+				'id_member'	=> 595401,
+				'name'		=> $this->input->post('name'),
+				'tel' 		=> $this->input->post('tel'),
+				'email' 		=> $this->input->post('email'),
+				'message' 	=> $this->input->post('message'),	
+				'date_add' 	=> date('Y-m-d H:i:s')			
+		);
+			
+		$query = $this->db->insert('member_contact_message', $data);
+		
+		return $query;
+	}
 }
 
 /* End of file member_model.php */
