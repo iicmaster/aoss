@@ -15,8 +15,14 @@ class Json extends Controller
 	
 	function get_json()
 	{
-		$data['json'] = array();
-		//$data['pattern'] = array("<td>#var1</td>",array('<td><b>#var1</b><i>#var2</i><u>#var3</u></td>'));
+		$data = array();
+		
+		for($i = 0; $i < 5; $i++)
+		{
+			$sub_data = array('first','second',array('first', 'second', 'third'));
+			
+			array_push($data, $sub_data);
+		}
 		
 		echo json_encode($data);	
 	}

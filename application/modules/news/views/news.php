@@ -30,7 +30,7 @@ $(document).ready(function(){
 		var data = 'id=' + checked;
 		$.post(url, data, 
 			function(json){	
-				$('tbody').html(get_json_row(json, 'other'));
+				$('tbody').html(get_json_row(json));
 			},
 			'json'
 		);
@@ -63,7 +63,20 @@ function get_json_row(json, pattern)
 		{
 			for(var second_loop = 0; second_loop < json[first_loop].length; second_loop++)
 			{
-				data += '<td>' + json[first_loop][second_loop] + '</td>';
+				var size = pattern[second_loop].match(/#var/g).length;
+				if(size > 1)
+				{
+					var sub_pattern = pattern[second_loop];
+					for(var third_loop = 0; third_loop < size; third_loop++)
+					{
+						sub_pattern = sub_pattern.replace('#var' + (third_loop + 1), json[first_loop][second_loop][third_loop]);		
+					}
+					data += sub_pattern;
+				}
+				else
+				{
+					data += pattern[second_loop].replace('#var1', json[first_loop][second_loop]);
+				}
 			}
 		}
 		data += '</tr>';
@@ -71,7 +84,7 @@ function get_json_row(json, pattern)
 	return data;
 }
 
-function get_json_table(json, pattern)
+/*function get_json_table(json, pattern)
 {
 	var data = '';
 	data += '<table>';
@@ -102,7 +115,7 @@ function get_json_table(json, pattern)
 	}
 	data += '</table>';
 	return data;
-}
+}*/
 
 </script>
 </head>
