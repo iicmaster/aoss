@@ -9,6 +9,13 @@ class Content_model extends Model
 		parent::Model();   
 	}
 	
+	function get_slideshow()
+	{
+		$query = $this->db->get('content_slideshow');
+		
+		return $query;
+	}
+	
 	function get_vdo($id=NULL)
 	{
 		$this->db->order_by('id');

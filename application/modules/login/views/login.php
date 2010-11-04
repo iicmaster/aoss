@@ -11,6 +11,10 @@
 #head_section{ background-image: none; }
 #error_msg { margin-top: 20px; }
 #button_section { margin-bottom: 20px; text-align: center; }
+form input[type=text], form input[type=password]
+{
+	width: 225px;
+}
 </style>
 </head>
 

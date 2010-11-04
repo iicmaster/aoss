@@ -9,7 +9,7 @@
 <?php echo js_asset('jquery-1.4.3.min.js') ?>
 <?php echo js_asset('jquery-ui-1.8.5/jquery-ui-1.8.5.min.js') ?>
 <script type="text/javascript">
-$(document).ready(function(){
+$(function(){
 	$('#dialog').dialog({
 		autoOpen: false,
 		width: 640,

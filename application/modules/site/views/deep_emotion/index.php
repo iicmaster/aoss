@@ -109,9 +109,9 @@
 	
 		#profile_content blockquote
 		{
-			background: #EEE;
+			background: #FFF;
 			border: 1px solid #FFF;
-			color: #600;
+			color: #000;
 			display: table-cell;
 			height: 130px;
 			line-height: 36px;
@@ -128,9 +128,9 @@
 			-moz-border-radius: 10px;
 			-webkit-border-radius: 10px;
 			
-			box-shadow: 0px 0px 5px #666, 0px 0px 3px #666 inset;
-			-moz-box-shadow: 0px 0px 5px #666, 0px 0px 3px #666 inset;
-			-webkit-box-shadow: 0px 0px 5px #666, 0px 0px 3px #666 inset;
+			box-shadow: 0px 0px 3px #666 inset;
+			-moz-box-shadow: 0px 0px 3px #666 inset;
+			-webkit-box-shadow: 0px 0px 3px #666 inset;
 		}
 		
 		#profile_content blockquote:before
@@ -185,7 +185,7 @@
 #testimonial ul
 {
 	list-style: none;
-	margin: 0px;
+	margin: 0px 0px 30px 0px;
 }
 
 #testimonial li
@@ -193,20 +193,26 @@
  	background: url(<?php echo $image_path ?>bg_testimonial.png) no-repeat;
 	color: #333;
 	height: 114px;
-	padding: 30px 50px 30px 30px;
-	position: relative;
-	margin-left: 10px;
+	margin: 5px 20px 10px 0px;
 	max-width: 775px;
+	padding: 25px 230px 15px 25px;
+	position: relative;
 	
 	/* CSS */
 	text-shadow: none;
 }
 
+#testimonial li q
+{
+	display: block;
+	text-indent: 20px;
+}
+
 #testimonial img
 {
-	border: 3px solid #FFF;
+	border: solid;
 	position: absolute;
-	right: -30px;
+	right: 40px;
 	
 	/* CSS3 */
 	border-radius: 10px;
@@ -214,11 +220,21 @@
 	-webkit-border-radius: 10px;
 }
 
+
+#testimonial b
+{
+	position: absolute;
+	display: block;
+	bottom: 15px;
+	right: 230px;
+}
+
 /*----------------------------------------------------------------------------------------------------*/
 /* End */
 /*----------------------------------------------------------------------------------------------------*/
 </style>
 <link rel="stylesheet" type="text/css" href="http://localhost/aoss/assets/js/fancybox/jquery.fancybox-1.3.2.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="http://localhost/aoss/assets/js/galleryview-2.1.1/galleryview.css" media="screen" />
 </head>
 <body>
 <div id="container" >
@@ -226,7 +242,19 @@
 		<div id="header" class="column grid_16"> <?php echo image_asset($image_asset_path.'bg_logo.png', 'site', array('alt'=>'Agel Independent', 'width'=>'267', 'height'=>'152' , 'id'=>'logo')); ?>
 			<div class="row">
 				<?php include('navigator.php'); ?>
-				<div id="slideshow" class="column grid_11"></div>
+				<div id="slideshow" class="column grid_11">
+					<div id="photos" class="galleryview">
+						<?php foreach ($slideshow->result() as $row): ?>
+						<div class="panel">
+							<?php echo image_asset($row->image, 'site', array('width'=>'625', 'height'=>'351', 'alt'=>$row->topic)) ?>
+							<div class="panel-overlay">
+							  <h2><?php echo $row->topic ?></h2>
+							  <p><?php echo $row->description ?></p>
+							</div>
+						  </div>
+						<?php endforeach; ?>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -247,7 +275,7 @@
 					$user['message']
 				</blockquote>
 				<div>
-					<?php echo image_asset('img_img_squ_w.png', '', array('width'=>'130', 'height'=>'130', 'alt'=>'Profiel Image')) ?>
+					<?php echo image_asset('img_img_squ_w.png', '', array('width'=>'130', 'height'=>'130', 'alt'=>'Profile Image')) ?>
 					<ul class="float_l">
 						<li>$user['name']</li>
 						<li>ID:</li>
@@ -262,13 +290,24 @@
 	<?php include("testimonial.php"); ?>
 	<?php include("footer.php"); ?>
 </div>
+
+<!-- jQuery -->
 <?php echo js_asset('jquery-1.4.3.min.js'); ?>
+
+<!-- fancybox -->
 <?php echo js_asset('fancybox/jquery.fancybox-1.3.2.pack.js'); ?>
+
+<!-- gallery view -->
+<?php echo js_asset('galleryview-2.1.1/jquery.easing.1.3.js'); ?>
+<?php echo js_asset('galleryview-2.1.1/jquery.timers-1.2.js'); ?>
+<?php echo js_asset('galleryview-2.1.1/jquery.galleryview-2.1.1.js'); ?>
 <script type="text/javascript">
-$(function() {
+$(function() 
+{
 	
-	$("#vdo a").click(function() {
-		
+	
+	$("#vdo a").click(function() 
+	{
 		var url = $(this).attr("href");
 		var id_youtube = url.substr(url.search(/v=/)+2,11);
 		
@@ -290,6 +329,9 @@ $(function() {
 	
 		return false;
 	});
+	
+	
+
 
 });
 </script>

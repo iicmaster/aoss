@@ -6,8 +6,8 @@ class Theme_model extends Model
 	{	
 		$theme = array();
 		$theme['head_bg_color'] = '#79C342';
-		$theme['head_text1'] = 'Member Login';
-		$theme['head_text2'] = 'Agel Online Support System';
+		$theme['head_text_1'] = 'Member Login';
+		$theme['head_text_2'] = 'Agel Online Support System';
 		$theme['head_text_color'] = '#FFF';
 		$theme['head_text_size'] = '24';
 		$theme['foot_bg_color'] = '#79C342';
