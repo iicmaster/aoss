@@ -26,14 +26,16 @@ $(function(){
 			checked += ',' + $(this).val();
 		});
 		
-		var url = '<?php echo base_url().'news/delete_news' ?>';
-		var data = 'id=' + checked;
-		$.post(url, data, 
-			function(json){	
-				$('tbody').html(get_json_row(json));
-			},
-			'json'
-		);
+		if(checked != ''){
+			var url = '<?php echo base_url().'news/delete_news' ?>';
+			var data = 'id=' + checked;
+			$.post(url, data, 
+				function(json){	
+					$('tbody').html(get_json_row(json));
+				},
+				'json'
+			);
+		}
 	});
 	
 	$('#add_news_btn').click(function(){
@@ -66,22 +68,31 @@ $(function(){
 	});
 	
 	$('#search').keyup(function(){
-		update_content($(this).val());
+		update_content($(this).val(), $('#search_by').val());
 	});
 	
-	$('#option').change(function(){
+	$('#search_by').change(function(){
 		update_content($('#search').val(), $(this).val());
+	});
+	
+	$('th').click(function(){
+		if($(this).attr('option') == 'desc')
+		{
+			$(this).attr('option', 'asc');
+		}
+		else
+		{
+			$(this).attr('option', 'desc');
+		}
+		update_content($('#search').val(), $('#search_by').val(), $(this).attr('axis'), $(this).attr('option'));
 	});
 	
 	update_content();
 });
 
-function update_content(word, option){
+function update_content(word, search_by, order_by, option){
 	var url = '<?php echo base_url().'news/get_news' ?>';
-	var data = 'word=';
-	data += word || '';
-	option = option || '';
-	data += '&option=' + option;
+	var data = 'word=' + (word || '') + '&search_by=' + (search_by || '') + '&order_by=' + (order_by || '') + '&option=' + (option || 'desc');
 	$.post(url, data,
 		function(json){
 			$('tbody').html(get_json_row(json));
@@ -177,9 +188,9 @@ function get_json_row(json, pattern)
 	<div id="search_section">
 		<form>
 			<input id="search" type="text" />
-			<select id="option">
+			<select id="search_by">
 				<option value="topic">Topic</option>
-				<option value="result">Result</option>
+				<option value="detail">Detail</option>
 			</select>
 		</form>
 	</div>
@@ -187,9 +198,9 @@ function get_json_row(json, pattern)
 		<table border="2">
 			<thead>
 				<tr>
-					<th></th>
-					<th>Topic</th>
-					<th>Result</th>
+					<th axis="id_news" option="desc"></th>
+					<th axis="topic" option="desc">Topic</th>
+					<th axis="detail" option="desc">Detail</th>
 				</tr>
 			</thead>
 			<tbody></tbody>

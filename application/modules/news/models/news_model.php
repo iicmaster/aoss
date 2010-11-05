@@ -78,19 +78,19 @@ class News_model extends Model
 	
 	function get_news_json()
 	{
-		$word = $this->input->post('word');
+		$word			= $this->input->post('word');
+		$search_by	= $this->input->post('search_by');
+		$order_by	= $this->input->post('order_by');
+		$option 		= $this->input->post('option'); 
 
-		if($word != '')
+		if($word != '' && $search_by != '')
 		{
-			$this->db->like($this->fields['topic'], $word);
-			$this->db->or_like($this->fields['detail'], $word);
+			$this->db->like($search_by, $word);
 		}
 		
-		$option = $this->input->post('option');
-		
-		if($option != '')
+		if($order_by != '')
 		{
-			$this->db->order_by($option, 'desc');
+			$this->db->order_by($order_by, $option);
 		}
 		
 		$query = $this->db->get($this->table);
@@ -107,6 +107,8 @@ class News_model extends Model
 	
 			array_push($data, $sub_data);	
 		}
+		
+		$this->last_order_by = $order_by;
 		
 		return json_encode($data);
 	}
