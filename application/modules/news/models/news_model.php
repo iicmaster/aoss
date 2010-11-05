@@ -27,15 +27,8 @@ class News_model extends Model
 			'date_add'	=> date('Y-m-d H:i:s')				
 		);
 		
-		if($data['topic'] != '')
-		{
-			$query = $this->db->insert($this->table, $data);
-			return $query;
-		}
-		else
-		{
-			return FALSE;	
-		}
+		$query = $this->db->insert($this->table, $data);
+		return $query;
 	}
 	
 	function update_news($id=NULL)
@@ -85,11 +78,27 @@ class News_model extends Model
 	
 	function get_news_json()
 	{
+		$word = $this->input->post('word');
+
+		if($word != '')
+		{
+			$this->db->like($this->fields['topic'], $word);
+			$this->db->or_like($this->fields['detail'], $word);
+		}
+		
+		$option = $this->input->post('option');
+		
+		if($option != '')
+		{
+			$this->db->order_by($option, 'desc');
+		}
+		
 		$query = $this->db->get($this->table);
 		
 		$data = array();
 		
-		foreach($query->result() as $row){
+		foreach($query->result() as $row)
+		{
 			$sub_data = array(
 									$row->id_news, 
 									$row->topic, 

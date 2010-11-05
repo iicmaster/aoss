@@ -17,6 +17,15 @@ class News extends Controller
 		$this->load->view('news', $data);
 	}
 	
+	function get_news()
+	{
+		$this->load->model('news_model');
+		
+		$data['json'] = $this->news_model->get_news_json();
+		
+		echo $data['json']; 	
+	}
+	
 	function add_news(){
 		$this->load->model('news_model');
 		

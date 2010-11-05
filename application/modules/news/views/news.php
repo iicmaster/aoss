@@ -35,7 +35,60 @@ $(function(){
 			'json'
 		);
 	});
+	
+	$('#add_news_btn').click(function(){
+		if($('#topic').val() != '' && $('#detail').val() != '')
+		{
+			var url = '<?php echo base_url().'news/add_news' ?>';
+			var data = 'topic=' + $('#topic').val() + '&detail=' + $('#detail').val();
+			$.post(url, data,
+				function(response){
+					if(response)
+					{
+						update_content();
+						alert('เพิ่มข่าวเรียบร้อย');
+						$('#topic').val('');
+						$('#detail').val('');
+						$('#dialog').dialog('close');	
+					}
+					else
+					{
+						alert('ไม่สามารถเพิ่มข่าวได้')	;
+					}
+				}
+			);
+			
+		}
+		else
+		{
+			alert('กรอกข้อมูลไม่ครบ');
+		}	
+	});
+	
+	$('#search').keyup(function(){
+		update_content($(this).val());
+	});
+	
+	$('#option').change(function(){
+		update_content($('#search').val(), $(this).val());
+	});
+	
+	update_content();
 });
+
+function update_content(word, option){
+	var url = '<?php echo base_url().'news/get_news' ?>';
+	var data = 'word=';
+	data += word || '';
+	option = option || '';
+	data += '&option=' + option;
+	$.post(url, data,
+		function(json){
+			$('tbody').html(get_json_row(json));
+		},
+		'json'
+	);		
+}
 
 function get_json_row(json, pattern)
 {
@@ -124,9 +177,9 @@ function get_json_row(json, pattern)
 	<div id="search_section">
 		<form>
 			<input id="search" type="text" />
-			<select>
-				<option value="">Topic</option>
-				<option value="">Result</option>
+			<select id="option">
+				<option value="topic">Topic</option>
+				<option value="result">Result</option>
 			</select>
 		</form>
 	</div>
@@ -139,19 +192,11 @@ function get_json_row(json, pattern)
 					<th>Result</th>
 				</tr>
 			</thead>
-			<tbody>
-				<?php foreach($data->result() as $row): ?>
-				<tr>
-					<td><input type="checkbox" value="<?php echo $row->id_news ?>" /></td>
-					<td><?php echo $row->topic ?></td>
-					<td><?php echo $row->detail ?></td>
-				</tr>
-				<?php endforeach; ?>
-			</tbody>
+			<tbody></tbody>
 		</table>
 		<a id="add_news" herf="#">Add</a> <a id="delete_news" herf="#">Delete</a> </div>
-	<div id="dialog">
-		<form action="<?php echo base_url()?>news/add_news" method="post">
+	<div id="dialog" title="Add News">
+		<form>
 			<ul>
 				<li>
 					<label for="topic">Topic</label>
@@ -162,7 +207,7 @@ function get_json_row(json, pattern)
 					<input id="detail" name="detail" type="text" />
 				</li>
 				<li>
-					<input type="submit" value="Add News" />
+					<input id="add_news_btn" type="button" value="Add News" />
 				</li>
 			</ul>
 		</form>
