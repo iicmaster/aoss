@@ -70,10 +70,20 @@
 
 #slideshow
 {
-	background: #FFF;
 	width: 625px;
 	height: 351px;
 	margin: 40px 10px 10px 0px;
+}
+
+#slideshow h3
+{
+	margin: 5px 0px;	
+	font-size: 14px;
+}
+
+#slideshow p
+{
+	font-size: 12px;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
@@ -155,12 +165,16 @@
 		#profile_content img
 		{
 			float: left;
-			border: solid;
+			border: 1px solid #FFF;
 			
 			/* CSS3 */
 			border-radius: 10px;
 			-moz-border-radius: 10px;
 			-webkit-border-radius: 10px;
+			
+			box-shadow: 0px 0px 3px #666 inset;
+			-moz-box-shadow: 0px 0px 3px #666 inset;
+			-webkit-box-shadow: 0px 0px 3px #666 inset;
 		}
 
 		#profile_content li
@@ -188,7 +202,7 @@
 	margin: 0px 0px 30px 0px;
 }
 
-#testimonial li
+#testimonial ul li
 {
  	background: url(<?php echo $image_path ?>bg_testimonial.png) no-repeat;
 	color: #333;
@@ -202,13 +216,7 @@
 	text-shadow: none;
 }
 
-#testimonial li q
-{
-	display: block;
-	text-indent: 20px;
-}
-
-#testimonial img
+#testimonial ul li img
 {
 	border: solid;
 	position: absolute;
@@ -220,8 +228,13 @@
 	-webkit-border-radius: 10px;
 }
 
+#testimonial ul li q
+{
+	display: block;
+	text-indent: 20px;
+}
 
-#testimonial b
+#testimonial ul li b
 {
 	position: absolute;
 	display: block;
@@ -243,17 +256,17 @@
 			<div class="row">
 				<?php include('navigator.php'); ?>
 				<div id="slideshow" class="column grid_11">
-					<div id="photos" class="galleryview">
+					<ul id="photos" class="galleryview">
 						<?php foreach ($slideshow->result() as $row): ?>
-						<div class="panel">
+						<li>
 							<?php echo image_asset($row->image, 'site', array('width'=>'625', 'height'=>'351', 'alt'=>$row->topic)) ?>
 							<div class="panel-overlay">
-							  <h2><?php echo $row->topic ?></h2>
+							  <h3><?php echo $row->topic ?></h3>
 							  <p><?php echo $row->description ?></p>
 							</div>
-						  </div>
+						  </li>
 						<?php endforeach; ?>
-					</div>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -299,15 +312,25 @@
 
 <!-- gallery view -->
 <?php echo js_asset('galleryview-2.1.1/jquery.easing.1.3.js'); ?>
-<?php echo js_asset('galleryview-2.1.1/jquery.timers-1.2.js'); ?>
 <?php echo js_asset('galleryview-2.1.1/jquery.galleryview-2.1.1.js'); ?>
+<?php echo js_asset('galleryview-2.1.1/jquery.timers-1.2.js'); ?>
 <script type="text/javascript">
-$(function() 
-{
+$(function(){
 	
-	
-	$("#vdo a").click(function() 
-	{
+	$('#photos').galleryView({
+		
+		'panel_width'			: 625,
+		'panel_height'			: 351,
+		'transition_speed'		: 1500,
+		'transition_interval'	: 5000,
+   		'background_color'		: 'white',
+   		'border'				: 'none',
+		'pause_on_hover'		: true,
+		'show_filmstrip'		: false
+	});
+
+	$("#vdo a").click(function(){
+		
 		var url = $(this).attr("href");
 		var id_youtube = url.substr(url.search(/v=/)+2,11);
 		
@@ -329,10 +352,6 @@ $(function()
 	
 		return false;
 	});
-	
-	
-
-
 });
 </script>
 </body>

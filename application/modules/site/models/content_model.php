@@ -33,6 +33,7 @@ class Content_model extends Model
 		
 		return $query;
 	}
+	
 }
 
 /* End of file content_model.php */

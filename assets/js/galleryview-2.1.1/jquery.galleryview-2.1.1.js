@@ -381,7 +381,7 @@ var window_loaded = false;
 		   	});
 			// If there is no filmstrip in this gallery, add navigation buttons to the panel itself
 			if(!opts.show_filmstrip) {
-				$('<img />').addClass('nav-next').attr('src',theme_path+opts.nav_theme+'/next.gif').appendTo(j_gallery).css({
+				$('<img />').addClass('nav-next').attr('src',theme_path+opts.nav_theme+'/next.png').appendTo(j_gallery).css({
 					'position':'absolute',
 					'zIndex':'1100',
 					'cursor':'pointer',
@@ -389,7 +389,7 @@ var window_loaded = false;
 					'right':'10px',
 					'display':'none'
 				}).click(showNextItem);
-				$('<img />').addClass('nav-prev').attr('src',theme_path+opts.nav_theme+'/prev.gif').appendTo(j_gallery).css({
+				$('<img />').addClass('nav-prev').attr('src',theme_path+opts.nav_theme+'/prev.png').appendTo(j_gallery).css({
 					'position':'absolute',
 					'zIndex':'1100',
 					'cursor':'pointer',
@@ -398,7 +398,7 @@ var window_loaded = false;
 					'display':'none'
 				}).click(showPrevItem);
 				
-				$('<img />').addClass('nav-next-overlay').attr('src',theme_path+opts.nav_theme+'/panel-nav-next.gif').appendTo(j_gallery).css({
+				$('<img />').addClass('nav-next-overlay').attr('src',theme_path+opts.nav_theme+'/panel-nav-next.png').appendTo(j_gallery).css({
 					'position':'absolute',
 					'zIndex':'1099',
 					'top':((opts.panel_height-22)/2)+gallery_padding-10+'px',
@@ -408,7 +408,7 @@ var window_loaded = false;
 					'opacity':0.75
 				}).click(showNextItem);
 				
-				$('<img />').addClass('nav-prev-overlay').attr('src',theme_path+opts.nav_theme+'/panel-nav-prev.gif').appendTo(j_gallery).css({
+				$('<img />').addClass('nav-prev-overlay').attr('src',theme_path+opts.nav_theme+'/panel-nav-prev.png').appendTo(j_gallery).css({
 					'position':'absolute',
 					'zIndex':'1099',
 					'top':((opts.panel_height-22)/2)+gallery_padding-10+'px',
@@ -659,12 +659,12 @@ var window_loaded = false;
 			
 			// Add navigation buttons
 			var navNext = $('<img />');
-			navNext.addClass('nav-next').attr('src',theme_path+opts.nav_theme+'/next.gif').appendTo(j_gallery).css({
+			navNext.addClass('nav-next').attr('src',theme_path+opts.nav_theme+'/next.png').appendTo(j_gallery).css({
 				'position':'absolute',
 				'cursor':'pointer'
 			}).click(showNextItem);
 			var navPrev = $('<img />');
-			navPrev.addClass('nav-prev').attr('src',theme_path+opts.nav_theme+'/prev.gif').appendTo(j_gallery).css({
+			navPrev.addClass('nav-prev').attr('src',theme_path+opts.nav_theme+'/prev.png').appendTo(j_gallery).css({
 				'position':'absolute',
 				'cursor':'pointer'
 			}).click(showPrevItem);
