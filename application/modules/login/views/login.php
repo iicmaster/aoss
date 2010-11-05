@@ -22,9 +22,9 @@ form input[type=text], form input[type=password]
 <div>
 	<div class="gadget">
 		<div id="head_section">
-			<h2><?php echo $theme['head_text1'] ?></h2>
+			<h2><?php echo $theme['head_text_1'] ?></h2>
 			<?php echo image_asset('line_gradient_300px.png', '', array('alt'=>'line', 'width'=>'100%')); ?> 
-			<h3><?php echo $theme['head_text2'] ?></h3>
+			<h3><?php echo $theme['head_text_2'] ?></h3>
 		</div>
 		<div id="form_section">
 			<p id="error_msg" class="center red text_12 bold"><?php echo $error_msg ?></p>
