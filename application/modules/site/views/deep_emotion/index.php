@@ -73,6 +73,7 @@
 	width: 625px;
 	height: 351px;
 	margin: 40px 10px 10px 0px;
+	overflow: hidden;
 }
 
 #slideshow h3
@@ -120,7 +121,7 @@
 		#profile_content blockquote
 		{
 			background: #FFF;
-			border: 1px solid #FFF;
+			border: 1px double #FFF;
 			color: #000;
 			display: table-cell;
 			height: 130px;
@@ -165,7 +166,7 @@
 		#profile_content img
 		{
 			float: left;
-			border: 1px solid #FFF;
+			border: 1px double #FFF;
 			
 			/* CSS3 */
 			border-radius: 10px;
@@ -218,14 +219,19 @@
 
 #testimonial ul li img
 {
-	border: solid;
+	border: 3px double #FFF;
 	position: absolute;
 	right: 40px;
+	overflow: hidden;
 	
 	/* CSS3 */
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
+			
+	box-shadow: 0px 0px 3px #666 inset;
+	-moz-box-shadow: 0px 0px 3px #666 inset;
+	-webkit-box-shadow: 0px 0px 3px #666 inset;
 }
 
 #testimonial ul li q
