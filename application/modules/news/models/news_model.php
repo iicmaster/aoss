@@ -78,10 +78,10 @@ class News_model extends Model
 	
 	function get_news_json()
 	{
-		$word			= $this->input->post('word');
+		$word		= $this->input->post('word');
 		$search_by	= $this->input->post('search_by');
 		$order_by	= $this->input->post('order_by');
-		$option 		= $this->input->post('option'); 
+		$option 	= $this->input->post('option'); 
 
 		if($word != '' && $search_by != '')
 		{

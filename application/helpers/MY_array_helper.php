@@ -8,6 +8,16 @@ function print_array($arr)
 	exit();
 }
 
+function comma_to_array($text)
+{
+	return explode(',', $text);
+}
+
+function array_to_comma($arr)
+{
+	return implode(',', $arr);
+}
+
 /* End of file MY_array_helper.php */
 /* Location: ./application/helpers/MY_array_helper.php */
 

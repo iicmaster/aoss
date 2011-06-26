@@ -132,7 +132,7 @@ class Member_model extends Model
 				'id_member'	=> 595401,
 				'name'		=> $this->input->post('name'),
 				'tel' 		=> $this->input->post('tel'),
-				'email' 		=> $this->input->post('email'),
+				'email' 	=> $this->input->post('email'),
 				'message' 	=> $this->input->post('message'),	
 				'date_add' 	=> date('Y-m-d H:i:s')			
 		);

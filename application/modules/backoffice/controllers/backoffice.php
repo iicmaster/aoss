@@ -14,8 +14,8 @@ class Backoffice extends Controller
 		
 		$data['title'] = 'Dash Board';
 		$data['theme'] = $this->theme_model->get_theme();
-		$data['theme']['head_text1'] = $this->session->userdata('name');
-		$data['theme']['head_text2'] = 'Agel Online Support System';
+		$data['theme']['head_text_1'] = $this->session->userdata('name');
+		$data['theme']['head_text_2'] = 'Agel Online Support System';
 		$data['main_content'] = 'dashboard';
 		
 		$this->load->view('main', $data);
